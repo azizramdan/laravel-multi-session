@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Admin;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+require __DIR__.'/auth-admin.php';
+
 Route::get('/', function () {
     return view('admin.welcome');
 });
+
+Route::get('/dashboard', function () {
+    return view('admin.dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+Route::get('users', fn () => response()->json(Admin::all()));
