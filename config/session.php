@@ -132,7 +132,7 @@ return [
     ),
 
     'cookie_admin' => env(
-        'SESSION_COOKIE',
+        'SESSION_COOKIE_ADMIN',
         Str::slug(env('APP_NAME', 'laravel'), '_').'_admin_session'
     ),
 
